@@ -2,7 +2,7 @@
 
 A small app to send [Dan Hon's newsletter](tinyletter.com/danhon) to your paperlater.
 
-Currently only supports me, as it is using Paperlater's unnoficial API. You can get it going on heroku if you want though.
+Currently only supports me, as it is using Paperlater aren't really supporting this yet. You can get it going on heroku if you want though.
 
 # To run
 
