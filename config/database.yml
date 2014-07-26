@@ -1,0 +1,13 @@
+development:
+  adapter: postgresql
+  database: honprint_development
+  username: james
+  password: 
+  host: localhost
+
+test:
+  adapter: postgresql
+  database: honprint_test
+  username: james
+  password: 
+  host: localhost
