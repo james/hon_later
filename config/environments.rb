@@ -3,15 +3,6 @@
 # => postgres://{user}:{password}@{host}:{port}/path
 #This is automatically configured on Heroku, you only need to worry if you also
 #want to run your app locally
-configure :production, :development do
-  db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
-
-  ActiveRecord::Base.establish_connection(
-      :adapter => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
-      :host     => db.host,
-      :username => db.user,
-      :password => db.password,
-      :database => db.path[1..-1],
-      :encoding => 'utf8'
-  )
-end
+dbconfig = YAML.load(ERB.new(File.read(File.join("config","database.yml"))).result)
+RACK_ENV ||= ENV["RACK_ENV"] || "development"
+ActiveRecord::Base.establish_connection dbconfig[RACK_ENV]
